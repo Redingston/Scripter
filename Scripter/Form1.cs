@@ -22,15 +22,6 @@ namespace Scripter
 
             InitializeComponent();
 
-            //var src = new Mat("C:\\Users\\Endrew\\Pictures\\man.jpg", ImreadModes.Grayscale);
-            //var dst = new Mat();
-
-            //Cv2.Canny(src, dst, 50, 200);
-            ////using (new Window("src image", src))
-            ////using (new Window("dst image", dst))
-            //{
-            //    Cv2.WaitKey();
-            //}
         }
 
       
@@ -52,7 +43,17 @@ namespace Scripter
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            var src = new Mat(pictureBox1.ImageLocation);
+
+            //var src = new Mat("C:\\Users\\Endrew\\Pictures\\man.jpg");
+            var dst = new Mat(50, 200, MatType.CV_16SC1);
+
+            Cv2.Canny(src, dst, 50, 200);
+            using (new Window("src image", src))
+            using (new Window("dst image", dst))
+            {
+                Cv2.WaitKey();
+            }
         }
     }
 }

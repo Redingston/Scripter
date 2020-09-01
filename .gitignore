@@ -1,5 +1,6 @@
-packages/
-obj/
 .vs/
 bin/
 *.user
+packages/
+obj/
+Scripter/obj
